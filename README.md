@@ -3,9 +3,9 @@
 Nome   |      Numero      |   Username GitHub
 ---------------------------------------------
 Daniel |      106244      |     @danzcosta
-Samuel |      111616      |     @pedro11713
-Pedro  |                  |
-Miguel |      110582      |      @mst3ps
+Pedro  |      111616      |     @pedro11713
+Samuel |      110962      |     @Samucaxx
+Miguel |      110582      |     @mst3ps
 ---------------------------------------------
 
 ## Objetivo do Projeto
