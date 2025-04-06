@@ -5,7 +5,7 @@ Nome   |      Numero      |   Username GitHub
 Daniel |      106244      |     @danzcosta
 Samuel |                  |
 Pedro  |                  |
-Miguel |                  |
+Miguel |      110582      |      @mst3ps
 ---------------------------------------------
 
 ## Objetivo do Projeto
