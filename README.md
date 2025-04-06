@@ -3,7 +3,7 @@
 Nome   |      Numero      |   Username GitHub
 ---------------------------------------------
 Daniel |      106244      |     @danzcosta
-Samuel |      111611      |     @pedro11713
+Samuel |      111616      |     @pedro11713
 Pedro  |                  |
 Miguel |      110582      |      @mst3ps
 ---------------------------------------------
