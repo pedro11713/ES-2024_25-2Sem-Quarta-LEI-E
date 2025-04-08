@@ -9,7 +9,7 @@ import org.locationtech.jts.io.WKTReader;
 /**
  * Classe utilitária responsável por construir grafos de propriedades
  * e carregar dados a partir de ficheiros CSV.
- */ 
+ */
 public class PropertyGraphBuilder {
 
     /**

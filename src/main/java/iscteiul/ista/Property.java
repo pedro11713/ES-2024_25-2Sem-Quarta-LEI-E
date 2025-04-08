@@ -4,9 +4,9 @@ import java.util.Objects;
 
 /**
  * Representa uma propriedade geográfica com atributos como identificador,
- * localização administrativa, área, perímetro e geometria em formato WKT.
+ * localização administrativa, área, perímetro e geometria em formato String.
  *
- * Esta classe serve como modelo de dados para representar parcelas ou terrenos,
+ * Esta classe serve como modelo de dados para representar terrenos e propriedades,
  * podendo ser usada para análise espacial e construção de grafos de vizinhança.
  */
 public class Property {
@@ -58,11 +58,11 @@ public class Property {
     }
 
     /**
-     * Extrai os pontos de coordenadas de uma string no formato WKT (Well-Known Text),
-     * removendo os parênteses exteriores e devolvendo apenas os valores relevantes.
+     * Extrai os pontos de coordenadas de uma String no formato, removendo os
+     * parênteses exteriores e devolvendo apenas os valores relevantes.
      *
-     * @param polygonString A string WKT que representa a geometria da propriedade.
-     * @return Uma string com os pontos da geometria, ou uma string vazia caso o formato seja inválido.
+     * @param polygonString A String que representa a geometria da propriedade.
+     * @return Uma String com os pontos da geometria, ou uma String vazia caso o formato seja inválido.
      */
     public String getGeometry(String polygonString) {
         // Encontra o índice do primeiro '(' mais interno
@@ -110,7 +110,7 @@ public class Property {
 
     /**
      * Gera um código de dispersão (hash) com base no identificador único da propriedade.
-     * Este método é útil para utilização em coleções como HashMap ou HashSet.
+     * Este método é útil para utilização em coleções como HashMap ou HashSet
      *
      * @return O valor hash correspondente a esta propriedade.
      */
