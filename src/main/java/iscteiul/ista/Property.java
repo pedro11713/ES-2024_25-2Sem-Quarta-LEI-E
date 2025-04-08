@@ -2,6 +2,13 @@ package iscteiul.ista;
 
 import java.util.Objects;
 
+/**
+ * Representa uma propriedade geográfica com atributos como identificador,
+ * localização administrativa, área, perímetro e geometria em formato WKT.
+ *
+ * Esta classe serve como modelo de dados para representar parcelas ou terrenos,
+ * podendo ser usada para análise espacial e construção de grafos de vizinhança.
+ */
 public class Property {
     public int OBJECTID;
     public String PAR_ID;

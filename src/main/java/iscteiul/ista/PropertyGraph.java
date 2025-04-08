@@ -1,6 +1,13 @@
 package iscteiul.ista;
 import java.util.*;
 
+/**
+ * Representa um grafo de propriedades, onde cada nó corresponde a uma propriedade
+ * e as ligações (arestas) representam vizinhança espacial entre elas.
+ *
+ * Permite adicionar propriedades, criar ligações entre elas (arestas),
+ * e consultar vizinhos ou o conjunto completo de propriedades.
+ */
 public class PropertyGraph {
     //Pergunta 3
     private final Map<Property, Set<Property>> adjacencyMap = new HashMap<>();
