@@ -29,8 +29,8 @@ Desenvolver de um software que permite :
 
 ## Funcionalidades
 # Implementadas :
- - Q1 ) Leitura do ficheiro Madeira-Moodle-1.1.csv
- - Q2 ) Grafo das propriedades , sendo que cada Nó é uma propriedade e as Ligaçoes servem para indicar propriedades vizinhas
+- Q1 ) Leitura do ficheiro Madeira-Moodle-1.1.csv
+- Q2 ) Grafo das propriedades , sendo que cada Nó é uma propriedade e as Ligaçoes servem para indicar propriedades vizinhas
 # Nao Implementadas :
 - Q3 , Q4 , Q5 , Q6 , Q7
 
