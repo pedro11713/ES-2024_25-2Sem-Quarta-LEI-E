@@ -6,8 +6,20 @@ import java.util.*;
 import org.locationtech.jts.geom.*;
 import org.locationtech.jts.io.WKTReader;
 
+/**
+ * Classe utilitária responsável por construir grafos de propriedades
+ * e carregar dados a partir de ficheiros CSV.
+ */
 public class PropertyGraphBuilder {
 
+    /**
+     * Carrega uma lista de propriedades a partir de um ficheiro CSV.
+     * Cada linha do ficheiro representa uma propriedade com os respetivos atributos separados por ponto e vírgula (;).
+     *
+     * @param filepath Caminho para o ficheiro CSV.
+     * @return Lista de objetos Property carregados do ficheiro.
+     * @throws Exception Caso ocorra algum erro na leitura do ficheiro ou no parsing dos dados.
+     */
     public static List<Property> loadPropertiesFromCSV(String filepath) throws Exception {
         List<Property> properties = new ArrayList<>();
         List<String> lines = Files.readAllLines(Paths.get(filepath));
@@ -35,6 +47,14 @@ public class PropertyGraphBuilder {
 
  //Pergunta 3
 
+    /**
+     * Constrói um grafo de propriedades a partir de uma lista de propriedades.
+     * As propriedades serão ligadas entre si no grafo caso os seus limites se toquem ou se intersectem (vizinhança espacial).
+     *
+     * @param properties Lista de propriedades a incluir no grafo.
+     * @return Um objeto PropertyGraph representando as ligações entre propriedades vizinhas.
+     * @throws Exception Caso ocorra algum erro ao processar a geometria das propriedades.
+     */
     public static PropertyGraph buildGraphFromProperties(List<Property> properties) throws Exception {
         PropertyGraph graph = new PropertyGraph();
         WKTReader reader = new WKTReader();
