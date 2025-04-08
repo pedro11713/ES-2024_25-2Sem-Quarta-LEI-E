@@ -29,6 +29,12 @@ public class Property {
         this.Ilha = Ilha;
     }
 
+    /**
+     * Devolve uma descrição textual do objeto Property, com os principais detalhes
+     * como o identificador, número de parcela, área, perímetro e localização.
+     *
+     * @return Uma string com a informação detalhada da propriedade.
+     */
     @Override
     public String toString() {
         return "Property{" +
@@ -43,6 +49,14 @@ public class Property {
                 ", Ilha='" + Ilha + '\'' +
                 '}';
     }
+
+    /**
+     * Extrai os pontos de coordenadas de uma string no formato WKT (Well-Known Text),
+     * removendo os parênteses exteriores e devolvendo apenas os valores relevantes.
+     *
+     * @param polygonString A string WKT que representa a geometria da propriedade.
+     * @return Uma string com os pontos da geometria, ou uma string vazia caso o formato seja inválido.
+     */
     public String getGeometry(String polygonString) {
         // Encontra o índice do primeiro '(' mais interno
         int startIndex = polygonString.lastIndexOf("((");
@@ -73,6 +87,12 @@ public class Property {
         return result;
     }
 
+    /**
+     * Compara esta propriedade com outra, considerando apenas o seu identificador único (OBJECTID).
+     *
+     * @param o O objeto a comparar com esta instância.
+     * @return true se ambas as propriedades tiverem o mesmo OBJECTID; false caso contrário.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -81,6 +101,12 @@ public class Property {
         return OBJECTID == property.OBJECTID;
     }
 
+    /**
+     * Gera um código de dispersão (hash) com base no identificador único da propriedade.
+     * Este método é útil para utilização em coleções como HashMap ou HashSet.
+     *
+     * @return O valor hash correspondente a esta propriedade.
+     */
     @Override
     public int hashCode() {
         return Objects.hash(OBJECTID);
