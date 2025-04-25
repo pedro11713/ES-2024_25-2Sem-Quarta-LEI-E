@@ -1,4 +1,5 @@
 package iscteiul.ista;
+
 import java.util.List;
 import java.util.Set;
 
@@ -28,6 +29,12 @@ public class Test {
             for (Property viz : vizinhos) {
                 System.out.println(viz);
             }
+
+            // Visualiza o grafo
+            List<Property> sample = properties.subList(0, Math.min(500, properties.size()));
+            PropertyGraph sampleGraph = PropertyGraphBuilder.buildGraphFromProperties(sample); // Cambié el nombre de la
+                                                                                               // variable a sampleGraph
+            PropertyGraphVisualizer.visualize(sampleGraph); // Uso de sampleGraph en vez de graph
 
         } catch (Exception e) {
             e.printStackTrace();

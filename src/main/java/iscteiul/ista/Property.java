@@ -36,6 +36,11 @@ public class Property {
         this.Ilha = Ilha;
     }
 
+    int getOBJECTID() {
+        return OBJECTID;
+    }
+    
+
     /**
      * Devolve uma descrição textual do objeto Property, com os principais detalhes
      * como o identificador, número de parcela, área, perímetro e localização.
