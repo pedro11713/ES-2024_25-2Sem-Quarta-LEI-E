@@ -88,5 +88,18 @@ public class PropertyGraphBuilder {
 
 
 // pergunta 3, vizinhos de cada proprietario
+public static OwnerGraph buildOwnerGraphFromPropertyGraph(PropertyGraph propertyGraph) {
+    OwnerGraph ownerGraph = new OwnerGraph();
 
+    for (Property property : propertyGraph.getAllProperties()) {
+        ownerGraph.addOwner(property.OWNER);
+
+        for (Property neighbor : propertyGraph.getNeighbors(property)) {
+            ownerGraph.addOwner(neighbor.OWNER);
+            ownerGraph.addEdge(property.OWNER, neighbor.OWNER);
+        }
+    }
+
+    return ownerGraph;
+}
 }

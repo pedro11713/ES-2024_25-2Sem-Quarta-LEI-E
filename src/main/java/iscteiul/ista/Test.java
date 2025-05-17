@@ -2,6 +2,7 @@ package iscteiul.ista;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Test {
     public static void main(String[] args) {
@@ -35,6 +36,39 @@ public class Test {
             PropertyGraph sampleGraph = PropertyGraphBuilder.buildGraphFromProperties(sample); // Cambié el nombre de la
                                                                                                // variable a sampleGraph
             PropertyGraphVisualizer.visualize(sampleGraph); // Uso de sampleGraph en vez de graph
+
+
+            OwnerGraph ownerGraph = PropertyGraphBuilder.buildOwnerGraphFromPropertyGraph(graph);
+
+// Remover donos além dos 20 primeiros (manual, só para debug)
+            Set<String> toKeep = ownerGraph.getAllOwners().stream().limit(20).collect(Collectors.toSet());
+            OwnerGraph filtered = new OwnerGraph();
+            for (String o : toKeep) {
+                filtered.addOwner(o);
+                for (String neighbor : ownerGraph.getNeighbors(o)) {
+                    if (toKeep.contains(neighbor)) {
+                        filtered.addOwner(neighbor);
+                        filtered.addEdge(o, neighbor);
+                    }
+                }
+            }
+            OwnerGraphVisualizer.visualize(filtered);
+
+            String owner1 = "1";
+            Set<String> neighbors1 = ownerGraph.getNeighbors(owner1);
+            System.out.println("Vizinhos do proprietário " + owner1 + ": " + neighbors1);
+
+            String owner2 = "2";
+            Set<String> neighbors2 = ownerGraph.getNeighbors(owner2);
+            System.out.println("Vizinhos do proprietário " + owner2 + ": " + neighbors2);
+
+            // Mostrar vizinhos do proprietário "55"
+            String owner801 = "801";
+            Set<String> neighbors801 = ownerGraph.getNeighbors(owner801);
+            System.out.println("Vizinhos do proprietário " + owner801 + ": " + neighbors801);
+
+
+
 
         } catch (Exception e) {
             e.printStackTrace();
