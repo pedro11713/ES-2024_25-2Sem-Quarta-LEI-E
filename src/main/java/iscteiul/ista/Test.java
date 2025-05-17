@@ -70,6 +70,18 @@ public class Test {
 
 
 
+           //tarefa 4 (area)
+            // Cálculo de área média por área administrativa
+            String tipoArea = "freguesia";       // Pode ser "freguesia", "municipio" ou "ilha"
+            String nomeArea = "Arco da Calheta";         // Nome da freguesia/município/ilha desejada
+
+            double media = PropertyStatistics.calcularAreaMedia(properties, tipoArea, nomeArea);
+            System.out.println("Área média das propriedades em " + nomeArea + " (" + tipoArea + "): " + media + " m²");
+
+
+
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
