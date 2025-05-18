@@ -53,4 +53,9 @@ public class PropertyGraph {
     public Set<Property> getAllProperties() {
         return adjacencyMap.keySet();
     }
+
+    public boolean areNeighbors(Property a, Property b) {
+    return adjacencyMap.getOrDefault(a, Collections.emptySet()).contains(b);
+}
+
 }

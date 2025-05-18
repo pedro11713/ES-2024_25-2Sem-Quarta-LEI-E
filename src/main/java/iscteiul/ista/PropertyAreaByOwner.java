@@ -2,17 +2,17 @@ package iscteiul.ista;
 
 import java.util.*;
 
-public class PropertyStatistics {
+public class PropertyAreaByOwner {
 
-    /**
-     * Calcula a área média simples das propriedades numa área administrativa.
-     */
+    public PropertyAreaByOwner() {
+    }
+
     public static double calcularAreaMedia(List<Property> properties, String tipoArea, String nomeArea) {
-        double soma = 0;
-        int contador = 0;
+        Map<String, Double> areaPorOwner = new HashMap<>();
 
         for (Property p : properties) {
-            boolean corresponde;
+            boolean corresponde = false;
+
             switch (tipoArea.toLowerCase()) {
                 case "freguesia":
                     corresponde = p.Freguesia.equalsIgnoreCase(nomeArea);
@@ -28,16 +28,22 @@ public class PropertyStatistics {
             }
 
             if (corresponde) {
-
-
-                
-                soma += p.Shape_Area;
-                contador++;
+                // Sumamos el área al dueño
+                areaPorOwner.put(
+                    p.getOwner(),
+                    areaPorOwner.getOrDefault(p.getOwner(), 0.0) + p.Shape_Area
+                );
             }
         }
 
-        return (contador == 0) ? 0 : soma / contador;
-    }
+        // Calcular la media
+        if (areaPorOwner.isEmpty()) return 0;
 
- 
+        double soma = 0;
+        for (double area : areaPorOwner.values()) {
+            soma += area;
+        }
+
+        return soma / areaPorOwner.size();
+    }
 }
