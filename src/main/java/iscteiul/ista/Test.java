@@ -77,7 +77,10 @@ public class Test {
 
             double media = PropertyStatistics.calcularAreaMedia(properties, tipoArea, nomeArea);
             System.out.println("Área média das propriedades em " + nomeArea + " (" + tipoArea + "): " + media + " m²");
-
+           
+           //tarefa 5 (area by owner)
+            double media2 = PropertyAreaByOwner.calcularAreaMedia(properties, tipoArea, nomeArea);
+            System.out.println("Área média das propriedades by owner em " + nomeArea + " (" + tipoArea + "): " + media2 + " m²");
 
 
 
