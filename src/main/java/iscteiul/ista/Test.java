@@ -82,6 +82,7 @@ public class Test {
             System.out.println("\n=== Sugestões de trocas duplas entre proprietários ===");
 
             List<String> trocasDuplas = TrocaSugeridor.sugerirTrocasDuplas(properties, graph, ownerGraph);
+            TrocaGraphVisualizer.visualize(trocasDuplas);
 
             if (trocasDuplas.isEmpty()) {
                 System.out.println("Nenhuma troca dupla sugerida.");
@@ -90,8 +91,6 @@ public class Test {
                     System.out.println(troca);
                 }
             }
-
-           
 
         } catch (Exception e) {
             e.printStackTrace();
