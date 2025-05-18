@@ -103,4 +103,21 @@ public class TrocaSugeridor {
             this.p2 = p2;
         }
     }
+
+    public static class TrocaDuplaInfo {
+    public String owner1, owner2;
+    public int totalTrocas;
+    public double ganhoTotalOwner1;
+    public double ganhoTotalOwner2;
+
+    public TrocaDuplaInfo(String owner1, String owner2, int totalTrocas,
+                          double ganhoTotalOwner1, double ganhoTotalOwner2) {
+        this.owner1 = owner1;
+        this.owner2 = owner2;
+        this.totalTrocas = totalTrocas;
+        this.ganhoTotalOwner1 = ganhoTotalOwner1;
+        this.ganhoTotalOwner2 = ganhoTotalOwner2;
+    }
+}
+
 }
