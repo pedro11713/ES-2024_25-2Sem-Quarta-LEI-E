@@ -37,10 +37,9 @@ public class Test {
                                                                                                // variable a sampleGraph
             PropertyGraphVisualizer.visualize(sampleGraph); // Uso de sampleGraph en vez de graph
 
-
             OwnerGraph ownerGraph = PropertyGraphBuilder.buildOwnerGraphFromPropertyGraph(graph);
 
-// Remover donos além dos 20 primeiros (manual, só para debug)
+            // Remover donos além dos 20 primeiros (manual, só para debug)
             Set<String> toKeep = ownerGraph.getAllOwners().stream().limit(20).collect(Collectors.toSet());
             OwnerGraph filtered = new OwnerGraph();
             for (String o : toKeep) {
@@ -67,23 +66,32 @@ public class Test {
             Set<String> neighbors801 = ownerGraph.getNeighbors(owner801);
             System.out.println("Vizinhos do proprietário " + owner801 + ": " + neighbors801);
 
-
-
-
-           //tarefa 4 (area)
+            // tarefa 4 (area)
             // Cálculo de área média por área administrativa
-            String tipoArea = "freguesia";       // Pode ser "freguesia", "municipio" ou "ilha"
-            String nomeArea = "Arco da Calheta";         // Nome da freguesia/município/ilha desejada
+            String tipoArea = "freguesia"; // Pode ser "freguesia", "municipio" ou "ilha"
+            String nomeArea = "Arco da Calheta"; // Nome da freguesia/município/ilha desejada
 
             double media = PropertyStatistics.calcularAreaMedia(properties, tipoArea, nomeArea);
             System.out.println("Área média das propriedades em " + nomeArea + " (" + tipoArea + "): " + media + " m²");
-           
-           //tarefa 5 (area by owner)
+
+            // tarefa 5 (area by owner)
             double media2 = PropertyAreaByOwner.calcularAreaMedia(properties, tipoArea, nomeArea);
-            System.out.println("Área média das propriedades by owner em " + nomeArea + " (" + tipoArea + "): " + media2 + " m²");
+            System.out.println(
+                    "Área média das propriedades by owner em " + nomeArea + " (" + tipoArea + "): " + media2 + " m²");
 
+            System.out.println("\n=== Sugestões de trocas duplas entre proprietários ===");
 
+            List<String> trocasDuplas = TrocaSugeridor.sugerirTrocasDuplas(properties, graph, ownerGraph);
 
+            if (trocasDuplas.isEmpty()) {
+                System.out.println("Nenhuma troca dupla sugerida.");
+            } else {
+                for (String troca : trocasDuplas) {
+                    System.out.println(troca);
+                }
+            }
+
+           
 
         } catch (Exception e) {
             e.printStackTrace();
