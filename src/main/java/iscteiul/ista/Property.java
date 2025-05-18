@@ -6,7 +6,8 @@ import java.util.Objects;
  * Representa uma propriedade geográfica com atributos como identificador,
  * localização administrativa, área, perímetro e geometria em formato String.
  *
- * Esta classe serve como modelo de dados para representar terrenos e propriedades,
+ * Esta classe serve como modelo de dados para representar terrenos e
+ * propriedades,
  * podendo ser usada para análise espacial e construção de grafos de vizinhança.
  */
 public class Property {
@@ -15,14 +16,14 @@ public class Property {
     public String PAR_NUM;
     public double Shape_Length;
     public double Shape_Area;
-    public String geometry;  // Ainda como string; pode ser processado depois
+    public String geometry; // Ainda como string; pode ser processado depois
     public String OWNER;
     public String Freguesia;
     public String Municipio;
     public String Ilha;
 
     public Property(int OBJECTID, String PAR_ID, String PAR_NUM, double Shape_Length, double Shape_Area,
-                    String geometry, String OWNER, String Freguesia, String Municipio, String Ilha) {
+            String geometry, String OWNER, String Freguesia, String Municipio, String Ilha) {
         this.OBJECTID = OBJECTID;
         this.PAR_ID = PAR_ID;
         this.PAR_NUM = PAR_NUM;
@@ -39,7 +40,10 @@ public class Property {
     int getOBJECTID() {
         return OBJECTID;
     }
-    
+
+    String getOwner() {
+        return OWNER;
+    }
 
     /**
      * Devolve uma descrição textual do objeto Property, com os principais detalhes
@@ -67,7 +71,8 @@ public class Property {
      * parênteses exteriores e devolvendo apenas os valores relevantes.
      *
      * @param polygonString A String que representa a geometria da propriedade.
-     * @return Uma String com os pontos da geometria, ou uma String vazia caso o formato seja inválido.
+     * @return Uma String com os pontos da geometria, ou uma String vazia caso o
+     *         formato seja inválido.
      */
     public String getGeometry(String polygonString) {
         // Encontra o índice do primeiro '(' mais interno
@@ -100,21 +105,26 @@ public class Property {
     }
 
     /**
-     * Compara esta propriedade com outra, considerando apenas o seu identificador único (OBJECTID).
+     * Compara esta propriedade com outra, considerando apenas o seu identificador
+     * único (OBJECTID).
      *
      * @param o O objeto a comparar com esta instância.
-     * @return true se ambas as propriedades tiverem o mesmo OBJECTID; false caso contrário.
+     * @return true se ambas as propriedades tiverem o mesmo OBJECTID; false caso
+     *         contrário.
      */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Property)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof Property))
+            return false;
         Property property = (Property) o;
         return OBJECTID == property.OBJECTID;
     }
 
     /**
-     * Gera um código de dispersão (hash) com base no identificador único da propriedade.
+     * Gera um código de dispersão (hash) com base no identificador único da
+     * propriedade.
      * Este método é útil para utilização em coleções como HashMap ou HashSet
      *
      * @return O valor hash correspondente a esta propriedade.
