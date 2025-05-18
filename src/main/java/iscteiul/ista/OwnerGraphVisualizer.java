@@ -5,8 +5,19 @@ import org.graphstream.graph.implementations.*;
 import java.util.Set;
 import java.util.HashSet;
 
+/**
+ * Classe utilitária responsável por visualizar um grafo de proprietários
+ * utilizando a biblioteca GraphStream.
+ */
 public class OwnerGraphVisualizer {
 
+    /**
+     * Visualiza o grafo de proprietários fornecido, representando os proprietários como nós
+     * e as relações entre eles como arestas. A visualização inclui estilo visual simples
+     * e evita a duplicação de arestas.
+     *
+     * @param ownerGraph O grafo de proprietários a visualizar.
+     */
     public static void visualize(OwnerGraph ownerGraph) {
         Graph graph = new SingleGraph("Proprietários");
 
