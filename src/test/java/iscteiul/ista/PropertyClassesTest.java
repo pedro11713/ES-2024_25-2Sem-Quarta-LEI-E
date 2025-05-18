@@ -3,20 +3,16 @@ package iscteiul.ista;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.io.*;
 import java.nio.file.*;
 import java.util.*;
 
 /**
  * Classe de testes unitários para verificar o correto funcionamento das classes
  * Property, PropertyGraph e PropertyGraphBuilder.
- *
  * Utiliza JUnit 5 para validar comportamentos esperados como:
  * - formatação textual da propriedade
  * - extração da geometria

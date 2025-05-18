@@ -1,6 +1,5 @@
 package iscteiul.ista;
 
-import java.io.*;
 import java.nio.file.*;
 import java.util.*;
 import org.locationtech.jts.geom.*;

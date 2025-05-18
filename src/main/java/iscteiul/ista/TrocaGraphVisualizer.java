@@ -6,7 +6,6 @@ import org.graphstream.graph.implementations.*;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 /**
  * Classe responsável por visualizar graficamente as trocas duplas sugeridas entre proprietários.
  * Cada nó representa um proprietário e cada aresta representa uma troca entre dois.
@@ -16,25 +15,13 @@ public class TrocaGraphVisualizer {
 
     /**
      * Visualiza uma lista de trocas duplas entre proprietários, representando cada troca como uma aresta
-     * entre dois nós identificados pelos IDs dos proprietários. A cor da aresta varia consoante o ganho líquido total.
+     * entre dois nós identificados pelos IDs dos proprietários. A cor da aresta varia consoante o ganho líquido total:
+     * verde para ganhos superiores a 100, laranja para ganhos entre 0 e 100, e vermelho para ganhos negativos ou nulos.
      *
      * @param trocasDuplas Lista de descrições de trocas duplas, no formato de texto.
      */
     public static void visualize(List<String> trocasDuplas) {
-        Graph graph = new SingleGraph("Trocas Duplas");
-
-        graph.setAttribute("ui.stylesheet",
-                "node {" +
-                        "   fill-color: #3498db;" +
-                        "   size: 20px;" +
-                        "   text-size: 16px;" +
-                        "   text-alignment: above;" +
-                        "}" +
-                        "edge {" +
-                        "   text-size: 14px;" +
-                        "   fill-color: #2ecc71;" +
-                        "   text-alignment: above;" +
-                        "}");
+        Graph graph = getNodes();
 
         Set<String> processed = new HashSet<>();
 
@@ -77,6 +64,29 @@ public class TrocaGraphVisualizer {
         }
 
         graph.display();
+    }
+
+    /**
+     * Cria e configura o grafo com os estilos visuais dos nós e arestas.
+     *
+     * @return Um grafo com estilos definidos, pronto para uso na visualização.
+     */
+    private static Graph getNodes() {
+        Graph graph = new SingleGraph("Trocas Duplas");
+
+        graph.setAttribute("ui.stylesheet",
+                "node {" +
+                        "   fill-color: #3498db;" +
+                        "   size: 20px;" +
+                        "   text-size: 16px;" +
+                        "   text-alignment: above;" +
+                        "}" +
+                        "edge {" +
+                        "   text-size: 14px;" +
+                        "   fill-color: #2ecc71;" +
+                        "   text-alignment: above;" +
+                        "}");
+        return graph;
     }
 
     /**

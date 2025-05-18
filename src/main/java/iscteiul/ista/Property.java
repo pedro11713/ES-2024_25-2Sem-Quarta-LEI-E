@@ -5,7 +5,6 @@ import java.util.Objects;
 /**
  * Representa uma propriedade geográfica com atributos como identificador,
  * localização administrativa, área, perímetro e geometria em formato String.
- *
  * Esta classe serve como modelo de dados para representar terrenos e
  * propriedades, podendo ser usada para análise espacial e construção de grafos de vizinhança.
  */
