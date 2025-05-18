@@ -5,10 +5,8 @@ import java.util.Objects;
 /**
  * Representa uma propriedade geográfica com atributos como identificador,
  * localização administrativa, área, perímetro e geometria em formato String.
- *
  * Esta classe serve como modelo de dados para representar terrenos e
- * propriedades,
- * podendo ser usada para análise espacial e construção de grafos de vizinhança.
+ * propriedades, podendo ser usada para análise espacial e construção de grafos de vizinhança.
  */
 public class Property {
     public int OBJECTID;
@@ -22,8 +20,22 @@ public class Property {
     public String Municipio;
     public String Ilha;
 
+    /**
+     * Construtor da classe Property que inicializa todos os atributos da propriedade.
+     *
+     * @param OBJECTID      Identificador único da propriedade.
+     * @param PAR_ID        Identificador parcelar.
+     * @param PAR_NUM       Número da parcela.
+     * @param Shape_Length  Perímetro da propriedade.
+     * @param Shape_Area    Área da propriedade.
+     * @param geometry      Representação da geometria em formato string.
+     * @param OWNER         Nome do proprietário.
+     * @param Freguesia     Freguesia onde se localiza a propriedade.
+     * @param Municipio     Município onde se localiza a propriedade.
+     * @param Ilha          Ilha onde se localiza a propriedade.
+     */
     public Property(int OBJECTID, String PAR_ID, String PAR_NUM, double Shape_Length, double Shape_Area,
-            String geometry, String OWNER, String Freguesia, String Municipio, String Ilha) {
+                    String geometry, String OWNER, String Freguesia, String Municipio, String Ilha) {
         this.OBJECTID = OBJECTID;
         this.PAR_ID = PAR_ID;
         this.PAR_NUM = PAR_NUM;
@@ -37,10 +49,20 @@ public class Property {
         this.Ilha = Ilha;
     }
 
+    /**
+     * Devolve o identificador único da propriedade.
+     *
+     * @return O OBJECTID da propriedade.
+     */
     int getOBJECTID() {
         return OBJECTID;
     }
 
+    /**
+     * Devolve o nome do proprietário da propriedade.
+     *
+     * @return O nome do proprietário.
+     */
     String getOwner() {
         return OWNER;
     }
@@ -125,7 +147,7 @@ public class Property {
     /**
      * Gera um código de dispersão (hash) com base no identificador único da
      * propriedade.
-     * Este método é útil para utilização em coleções como HashMap ou HashSet
+     * Este método é útil para utilização em coleções como HashMap ou HashSet.
      *
      * @return O valor hash correspondente a esta propriedade.
      */

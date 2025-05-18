@@ -1,6 +1,5 @@
 package iscteiul.ista;
 
-import java.io.*;
 import java.nio.file.*;
 import java.util.*;
 import org.locationtech.jts.geom.*;
@@ -28,24 +27,21 @@ public class PropertyGraphBuilder {
         for (String line : lines) {
             String[] tokens = line.split(";", -1);
             Property p = new Property(
-                Integer.parseInt(tokens[0]),
-                tokens[1],
-                tokens[2],
-                Double.parseDouble(tokens[3]),
-                Double.parseDouble(tokens[4]),
-                tokens[5],
-                tokens[6],
-                tokens[7],
-                tokens[8],
-                tokens[9]
+                    Integer.parseInt(tokens[0]),
+                    tokens[1],
+                    tokens[2],
+                    Double.parseDouble(tokens[3]),
+                    Double.parseDouble(tokens[4]),
+                    tokens[5],
+                    tokens[6],
+                    tokens[7],
+                    tokens[8],
+                    tokens[9]
             );
             properties.add(p);
         }
         return properties;
     }
-
-
- //Pergunta 3
 
     /**
      * Constrói um grafo de propriedades a partir de uma lista de propriedades.
@@ -83,23 +79,26 @@ public class PropertyGraphBuilder {
         return graph;
     }
 
-// pergunta 2, vizinhos entre propriedades
+    /**
+     * Constrói um grafo de proprietários a partir de um grafo de propriedades.
+     * Cada proprietário é representado como um nó e são criadas ligações (arestas)
+     * entre proprietários cujas propriedades são vizinhas no grafo de propriedades.
+     *
+     * @param propertyGraph O grafo de propriedades a partir do qual se constrói o grafo de proprietários.
+     * @return Um objeto OwnerGraph com as ligações entre proprietários vizinhos.
+     */
+    public static OwnerGraph buildOwnerGraphFromPropertyGraph(PropertyGraph propertyGraph) {
+        OwnerGraph ownerGraph = new OwnerGraph();
 
+        for (Property property : propertyGraph.getAllProperties()) {
+            ownerGraph.addOwner(property.OWNER);
 
-
-// pergunta 3, vizinhos de cada proprietario
-public static OwnerGraph buildOwnerGraphFromPropertyGraph(PropertyGraph propertyGraph) {
-    OwnerGraph ownerGraph = new OwnerGraph();
-
-    for (Property property : propertyGraph.getAllProperties()) {
-        ownerGraph.addOwner(property.OWNER);
-
-        for (Property neighbor : propertyGraph.getNeighbors(property)) {
-            ownerGraph.addOwner(neighbor.OWNER);
-            ownerGraph.addEdge(property.OWNER, neighbor.OWNER);
+            for (Property neighbor : propertyGraph.getNeighbors(property)) {
+                ownerGraph.addOwner(neighbor.OWNER);
+                ownerGraph.addEdge(property.OWNER, neighbor.OWNER);
+            }
         }
-    }
 
-    return ownerGraph;
-}
+        return ownerGraph;
+    }
 }

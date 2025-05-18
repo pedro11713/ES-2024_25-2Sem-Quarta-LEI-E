@@ -4,12 +4,11 @@ import java.util.*;
 /**
  * Representa um grafo de propriedades, onde cada nó corresponde a uma propriedade
  * e as ligações (arestas) representam vizinhança espacial entre elas.
- *
  * Permite adicionar propriedades, criar ligações entre elas (arestas),
  * e consultar vizinhos ou o conjunto completo de propriedades.
  */
 public class PropertyGraph {
-    //Pergunta 3
+    // Pergunta 3
     private final Map<Property, Set<Property>> adjacencyMap = new HashMap<>();
 
     /**
@@ -44,7 +43,6 @@ public class PropertyGraph {
         return adjacencyMap.getOrDefault(property, Collections.emptySet());
     }
 
-
     /**
      * Devolve todas as propriedades presentes no grafo.
      *
@@ -54,8 +52,14 @@ public class PropertyGraph {
         return adjacencyMap.keySet();
     }
 
+    /**
+     * Verifica se duas propriedades são vizinhas no grafo.
+     *
+     * @param a A primeira propriedade.
+     * @param b A segunda propriedade.
+     * @return true se as propriedades forem vizinhas; false caso contrário.
+     */
     public boolean areNeighbors(Property a, Property b) {
-    return adjacencyMap.getOrDefault(a, Collections.emptySet()).contains(b);
-}
-
+        return adjacencyMap.getOrDefault(a, Collections.emptySet()).contains(b);
+    }
 }
