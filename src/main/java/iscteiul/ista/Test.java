@@ -79,6 +79,7 @@ public class Test {
             System.out.println(
                     "Área média das propriedades by owner em " + nomeArea + " (" + tipoArea + "): " + media2 + " m²");
 
+            // tarefa 6 (sugestões de trocas area)
             System.out.println("\n=== Sugestões de trocas duplas entre proprietários ===");
 
             List<String> trocasDuplas = TrocaSugeridor.sugerirTrocasDuplas(properties, graph, ownerGraph);
